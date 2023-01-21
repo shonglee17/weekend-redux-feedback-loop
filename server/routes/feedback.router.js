@@ -21,13 +21,12 @@ router.post('/', (req, res) => {
     let understanding = req.body.understanding
     let support = req.body.support
     let comments = req.body.comments
-    let flagged = req.body.flagged
-    let date = req.body.date
+    console.log(feeling);
 
-    let sqlValues = [feeling, understanding, support, comments, flagged, date]
+    let sqlValues = [feeling, understanding, support, comments]
 
     let queryText = 
-    'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "flagged", "date")VALUES ($1, $2, $3, $4, $5, $6);'
+    'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")VALUES ($1, $2, $3, $4);'
     
     pool.query(queryText, sqlValues)
     .then((result) => {
