@@ -2,21 +2,21 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-function Feeling(){
 
+function Support(){
     let history = useHistory();
     const dispatch = useDispatch();
 
-    const [feeling, setFeeling] = useState('');
+    const [support, setSupport] = useState('');
     const submitOrder = () => {
-        if (feeling === ''){
+        if (support === ''){
             alert('PLEASE INSERT A RATING!')
         }else{
         dispatch({
-            type: 'SUBMIT_FEELING',
-            payload: feeling
+            type: 'SUBMIT_SUPPORT',
+            payload: support
         })
-        history.push('/understanding');}
+        history.push('/comments');}
     };
 
     const handleSubmit = (event) => {
@@ -28,10 +28,10 @@ function Feeling(){
         <>
         <form onSubmit={handleSubmit}>
             <input
-                value= {feeling}
-                placeholder="Feeling?"
+                value= {support}
+                placeholder="Support?"
                 type="number"
-                onChange={(event) => setFeeling(event.target.value)}
+                onChange={(event) => setSupport(event.target.value)}
                 required
             />
             <button type="submit">Next</button>
@@ -40,4 +40,4 @@ function Feeling(){
     )
 }
 
-export default Feeling
+export default Support

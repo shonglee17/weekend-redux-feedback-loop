@@ -1,16 +1,38 @@
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+
 function Review(){
 
     const history = useHistory();
-    let chill;
+    let feeling;
+    let understanding;
+    let support;
+    let comment;
+
+    
     let feelings = useSelector((store) => store.feelingsRating)
     feelings.map((x)=>{
-        return chill = x.feeling
+        return feeling = x.feeling
     })
-    console.log(chill);
+
+    let understandings = useSelector((store) => store.understandingRating)
+    understandings.map((x)=>{
+        return understanding = x.understanding
+    })
+
+    let supports = useSelector((store) => store.supportRating)
+    supports.map((x)=>{
+        return support = x.support
+    })
+
+    let comments = useSelector((store) => store.comments)
+    comments.map((x)=>{
+        return comment = x.comment
+    })
+
+
+    
     const handleClicks = () =>{
         handleCheckout()
     }
@@ -19,10 +41,10 @@ function Review(){
             method: 'POST',
             url: '/prime_feedback',
             data: {
-                feeling: chill,
-                understanding: 1,
-                support: 1,
-                comments: 'hi',
+                feeling: feeling,
+                understanding: understanding,
+                support: support,
+                comments: comment,
 
             }
           }).then ((response) => {
@@ -37,7 +59,10 @@ function Review(){
     
     return (
         <>  
-            <div>Feelings :{feelings.map((num)=>{return (num.feeling)})}</div>
+            <div>Feelings :{feeling}</div>
+            <div>Understanding : {understanding}</div>
+            <div>Support : {support}</div>
+            <div>Comments : {comment}</div>
             <button onClick={handleClicks}>SUBMIT</button>
         </>
     )

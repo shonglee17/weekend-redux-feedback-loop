@@ -3,10 +3,12 @@ import axios from 'axios';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import Understanding from '../Understanding/Understanding';
 import Feeling from '../Feeling/Feeling';
 import Review from '../Review/Review';
 import Success from '../Success/Success';
+import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
 function App() {
 
 
@@ -22,6 +24,18 @@ function App() {
             <Feeling/>
           </Route>
           
+          <Route exact path ="/understanding">
+            <Understanding/>
+          </Route>
+
+          <Route exact path ="/support">
+            <Support/>
+          </Route>
+
+          <Route exact path ="/comments">
+            <Comments/>
+          </Route>
+
           <Route exact path ="/review">
             <Review/>
           </Route>
