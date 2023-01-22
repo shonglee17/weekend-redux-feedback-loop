@@ -18,72 +18,77 @@ const feelingsRating = (state = [], action) => {
       return newFeelingArray;
 
     case 'RESET':
-      return state;
+      newFeelingArray = [];
+      return newFeelingArray;
     default:
       return state;
   }
 };
 
 const understandingRating = (state = [], action) => {
-    switch (action.type) {
-      case 'SUBMIT_UNDERSTANDING':
-        let newUnderstandingNumber = action.payload;
-        let newUnderstandingObject = {
-          understanding: newUnderstandingNumber,
-        };
-        let newUnderstandingArray = [...state];
-        newUnderstandingArray.push(newUnderstandingObject);
-        return newUnderstandingArray;
-  
-      case 'RESET':
-        return state;
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case 'SUBMIT_UNDERSTANDING':
+      let newUnderstandingNumber = action.payload;
+      let newUnderstandingObject = {
+        understanding: newUnderstandingNumber,
+      };
+      let newUnderstandingArray = [...state];
+      newUnderstandingArray.push(newUnderstandingObject);
+      return newUnderstandingArray;
 
-  const supportRating = (state = [], action) => {
-    switch (action.type) {
-      case 'SUBMIT_SUPPORT':
-        let newSupportNumber = action.payload;
-        let newSupportObject = {
-          support: newSupportNumber,
-        };
-        let newSupportArray = [...state];
-        newSupportArray.push(newSupportObject);
-        return newSupportArray;
-  
-      case 'RESET':
-        return state;
-      default:
-        return state;
-    }
-  };
+    case 'RESET':
+      newUnderstandingArray = [];
+      return newUnderstandingArray;
 
-  const comments = (state = [], action) => {
-    switch (action.type) {
-      case 'SUBMIT_COMMENT':
-        let newComment = action.payload;
-        let newCommentObject = {
-          comment: newComment,
-        };
-        let newCommentArray = [...state];
-        newCommentArray.push(newCommentObject);
-        return newCommentArray;
-  
-      case 'RESET':
-        return state;
-      default:
-        return state;
-    }
-  };
+    default:
+      return state;
+  }
+};
+
+const supportRating = (state = [], action) => {
+  switch (action.type) {
+    case 'SUBMIT_SUPPORT':
+      let newSupportNumber = action.payload;
+      let newSupportObject = {
+        support: newSupportNumber,
+      };
+      let newSupportArray = [...state];
+      newSupportArray.push(newSupportObject);
+      return newSupportArray;
+
+    case 'RESET':
+      newSupportArray = [];
+      return newSupportArray;
+    default:
+      return state;
+  }
+};
+
+const comments = (state = [], action) => {
+  switch (action.type) {
+    case 'SUBMIT_COMMENT':
+      let newComment = action.payload;
+      let newCommentObject = {
+        comment: newComment,
+      };
+      let newCommentArray = [...state];
+      newCommentArray.push(newCommentObject);
+      return newCommentArray;
+
+    case 'RESET':
+      newCommentArray = [];
+      return newCommentArray;
+    default:
+      return state;
+  }
+};
 
 const store = createStore(
   combineReducers({
     feelingsRating,
     understandingRating,
     supportRating,
-    comments
+    comments,
   }),
   applyMiddleware(logger)
 );
