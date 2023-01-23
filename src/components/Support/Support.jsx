@@ -26,10 +26,11 @@ function Support(){
 
     return(
         <>
+        <h3>Did You Feel Supported Today?</h3>
         <form onSubmit={handleSubmit}>
             <input
                 value= {support}
-                placeholder="Support?"
+                placeholder="Rating"
                 type="number"
                 onChange={(event) => setSupport(event.target.value)}
                 required

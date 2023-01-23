@@ -24,10 +24,11 @@ function Comments(){
 
     return(
         <>
+        <h3>Please Give Us Any Additional Information You Would Like !</h3>
         <form onSubmit={handleSubmit}>
             <input
                 value= {comment}
-                placeholder="Comments?"
+                placeholder="Comments "
                 type="text"
                 onChange={(event) => setComment(event.target.value)}
             />

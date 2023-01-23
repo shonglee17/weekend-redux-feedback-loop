@@ -26,10 +26,11 @@ function Understanding(){
 
     return(
         <>
+        <h3>How Well Did You Understand Today's Material?</h3>
         <form onSubmit={handleSubmit}>
             <input
                 value= {understanding}
-                placeholder="Understanding?"
+                placeholder="Rating"
                 type="number"
                 onChange={(event) => setUnderstanding(event.target.value)}
                 required
